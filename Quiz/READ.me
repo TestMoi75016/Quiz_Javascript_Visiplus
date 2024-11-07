@@ -1,0 +1,34 @@
+Le projet contenant les fichiers data.js // game.js // et main.js est un jeu question-réponse sur les pays 
+L'objectif est de poser des questions au joueur en lui donnant un ensemble de codes de pays et en lui demandant d'identifier le bon code parmi plusieurs options. (Ex: parmi ces 4 réponses code de pays ex "fr" , quelle est le bon code qui correspond à France ?)
+
+INITIALISER une partie :
+- La fonction newGame initialise une nouvelle partie avec un nombre de questions défini (par exemple, 10 questions).
+- Elle réinitialise également les scores et prépare la 1ère question.
+
+POSER des questions ALEATOIRES :
+- À chaque question, on choisit un ensemble de codes de pays (codePays) parmi lesquels le joueur doit deviner le bon code.
+ex: fr,be,lu,es .
+- La fonction nextQuestion est chargée de sélectionner aléatoirement 4 codes de pays.
+- Parmi ces 4 options (codes), une sera désignée comme la réponse correcte (questionCode)
+- 'questionCode' est une propriété qui semble être utilisée pour stocker la bonne réponse (le code de pays correct) parmi les options proposées au joueur pour une question spécifique
+
+Role de STATE dans l'application :
+- state.score : Garde une trace du score actuel du joueur en incrémentant cette valeur pour chaque bonne réponse.
+- state.currentQuestion : Représente le numéro de la question actuelle. Cela permet de savoir à quelle question on est dans la séquence de questions.
+- state.totalQuestions : Définit le nombre total de questions dans le jeu. Cela permet de déterminer quand la partie est terminée.
+- state.codePays : Contient un tableau de 4 codes de pays pour la question en cours, qui sont les options de réponse parmi lesquelles le joueur doit choisir.
+- state.questionCode : Représente la bonne réponse (le code de pays correct) pour la question actuelle parmi les options de state.codePays.
+
+Passage à la question suivante :
+- La fonction nextQuestion met à jour state.codePays avec de nouvelles options de pays pour la prochaine question et choisit une bonne réponse, state.questionCode
+- explication de la ligne :   let possibleAnswer = codePays[nextIndex];
+Exemple: Si codePays[nextIndex]; = 2 car math.random() serait 0,5 et la taille du tableau est 5 donc 2,5 arrondi à 2, ça voudrait dire que la prochaine question serait à quoi correspond  la clé "lu"  dans le tableau codePays à l'index 2  “À quel pays correspond le code lu ?” 
+
+FICHIER MAIN 
+-  la syntaxe import * as game from "./game.js"; permet d'importer tout le contenu exporté du fichier game.js en une seule ligne. Voici comment cela fonctionne :
+- '*' signifie que tous les exports du fichier game.js seront importés.
+- 'as game' crée un alias (game) pour tous les éléments importés de game.js.
+- 'game' devient donc un objet qui contient toutes les fonctions et variables exportées depuis game.js.
+- accéder à toutes ces fonctions et variables en les préfixant par 'game'
+Ex: let gameState = game.newGame(10); // APPELLE DE LA FONCTION `newGame`
+    let isCorrect = game.checkAnswerAndUpdateScore("fr"); // APPELLE FONCTION `checkAnswerAndUpdateScore`
