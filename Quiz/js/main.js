@@ -5,7 +5,7 @@
 // Je peux accéder à toutes ces fonctions et variables en les préfixant par game, comme ceci :
 
 import * as game from "./game.js"; // Semble permettre de tout importer d'un coup
-import { countries, codePays } from "./data.js";
+import { loadCountries } from "./data.js";
 import * as display from "./display.js";
 
 //fonction qui met à jour le jeu
@@ -20,7 +20,7 @@ import * as display from "./display.js";
 //   }
 // }
 function verifyAnswer() {
-  const userAnswerIndex = this.id.slice(-1); //pas compris, récupération de l'id de la réponse choisie par l'user. Ici, this.id.slice(-1) extrait le dernier caractère de l'ID du bouton cliqué (qui est un chiffre 0 1 2 3 ou 4 car answer0 etc..) pour obtenir l'index de la réponse
+  const userAnswerIndex = this.id.slice(-1); //Voir read.me. récupération de l'id de la réponse choisie par l'user. Ici, this.id.slice(-1) extrait le dernier caractère de l'ID du bouton cliqué (qui est un chiffre 0 1 2 3 ou 4 car answer0 etc..) pour obtenir l'index de la réponse
   const userAnswer = game.state.answers[userAnswerIndex];
   game.checkAnswerAndUpdateScore(userAnswer);
   if (game.state.currentQuestion < game.state.totalQuestions) {
@@ -49,5 +49,5 @@ function gameOpening() {
   let actionButton = document.getElementById("action");
   actionButton.onclick = startGame; // onclick = event quand on click sur le boutton action
 }
-
+loadCountries(); // La fonction loadCountries() est placée avant window.onload = gameOpening; pour s'assurer que les données des pays (chargées depuis l'API) sont disponibles avant de démarrer l'interface du jeu.
 window.onload = gameOpening; // Chargement de la page = fonction gameOpening qui se jouera.
