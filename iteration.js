@@ -42,7 +42,7 @@ for (let monNombre of nombres) {
   console.log(monNombre * monNombre); // log 1 36 64 225 donc les carrés de chaque nombre du tableau nombre stocké monNombre.  Stocker mon tableau dans une variable grace à 'of' et cette variable la multiplier par elle même
 }
 
-// Pareil avec des OBJETS avec le mot clé 'in':
+// Pareil avec des OBJETS avec le mot clé 'in', for...in:
 let point = {
   x: 1,
   y: 2,
