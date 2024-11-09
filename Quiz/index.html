@@ -1,27 +1,59 @@
 <!-- COMMANDE npx http-server pour démarrer le SERVER afin que les modules fonctionnent -->
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/pico.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <!-- Le script est dans le head -->
+    <script src="js/main.js"  type="module" ></script>
+    <title>Quiz drapeaux</title>
   </head>
   <body>
-    <!-- Bouton d'action pour lancer une nouvelle partie -->
-    <div><a id="action" role="button">NOUVEAU JEU</a></div>
+    <main class="container">
+      <nav>
+        <ul>
+          <li><strong>Quiz drapeaux</strong></li>
+        </ul>
+        <ul>
+          <li id="score"></li>
+        </ul>
+        <ul>
+          <li><a id="action" href="#" role="button">🕹️ NOUVEAU JEU 🕹️</a></li>
+        </ul>
+      </nav>
+      <div id="content">
+          <div id="quiz" class="grid">
+            <div id="quiz_content">
+                  <!-- Contiendra la question à poser à l'user -->
+            </div>
+          </div>
 
-    <!-- Contiendra la question à poser à l'user -->
-    <div id="question"></div>
-
-    <!-- Contient l'ensemble des réponses -->
-    <div id="answers">
-      <div><button id="answer0"></button></div>
-      <div><button id="answer1"></button></div>
-      <div><button id="answer2"></button></div>
-      <div><button id="answer3"></button></div>
-    </div>
-
-    <!-- <script src="bonjour.js"></script> -->
-    <script src="main.js" type="module"></script>
+      <!-- Contient l'ensemble des réponses possibles que l'on peut choisir -->
+          <footer id="answers">
+            <div class="grid">
+              <div>
+                <button id="answer0">
+                </button>
+              </div>
+              <div>
+                <button id="answer1">
+                </button>
+              </div>
+            </div>
+            <div class="grid">
+              <div>
+                <button id="answer2">
+                </button>
+              </div>
+              <div>
+                <button id="answer3">
+                </button>
+              </div>
+          </footer>
+      </div>
+    </main>
   </body>
 </html>
+

@@ -32,3 +32,35 @@ FICHIER MAIN
 - accéder à toutes ces fonctions et variables en les préfixant par 'game'
 Ex: let gameState = game.newGame(10); // APPELLE DE LA FONCTION `newGame`
     let isCorrect = game.checkAnswerAndUpdateScore("fr"); // APPELLE FONCTION `checkAnswerAndUpdateScore`
+
+COMPRENDRE le lien entre LA GENERATION DE LA BONNE REPONSE ET L'AFFICHAGE DE LA QUESTION qui correspond à cette bonne réponse :
+- Génération des réponses : Dans nextQuestion, le tableau state.answers est rempli avec quatre codes de pays aléatoires qui serviront de choix de réponses pour l’utilisateur. Ces codes sont choisis aléatoirement parmi les pays disponibles.
+- Sélection de la bonne réponse : Ensuite, on attribue à state.questionCode un des éléments de state.answers, sélectionné aléatoirement. Cela signifie que state.questionCode contient le code du pays qui servira de bonne réponse pour cette question.
+- Affichage de la question : Puisque state.questionCode est défini à ce moment, updateState utilise ce 'code' (cette 'key') pour afficher le nom du pays correspondant à state.questionCode en tant que question.
+
+
+
+La ligne const userAnswerIndex = this.id.slice(-1) : 
+- this fait référence à l'élément HTML sur lequel l'événement a été déclenché. Dans ce cas, this est le bouton cliqué par l'utilisateur.
+- this.id est donc l'identifiant (ID) du bouton cliqué.
+- Par exemple, si l'utilisateur clique sur un bouton dont l'ID est "answer2", alors this.id sera la chaîne de caractères "answer2"
+
+slice(-1) est une méthode de chaîne de caractères qui extrait le dernier caractère de la chaîne this.id
+Dans notre exemple, this.id.slice(-1) extrait le caractère "2" de "answer2", ce qui donne "2".
+- Comme "2" est une chaîne de caractères, elle est automatiquement convertie en nombre (2) lors de l'affectation à userAnswerIndex.
+
+Rappel méthode slice():
+let text = "Bonjour";
+
+// Extraire de l'index 1 à l'index 4 (non inclus)
+console.log(text.slice(1, 4)); // "onj"
+
+// Extraire de l'index 3 jusqu'à la fin
+console.log(text.slice(3)); // "jour"
+
+// Extraire le dernier caractère
+console.log(text.slice(-1)); // "r"
+
+// Extraire les 2 derniers caractères 
+console.log(text.slice(-2)); // "ur"
+Quand on est en négatif on part de la fin. C'est pour àa slice(-1) extrait le dernier caractère.

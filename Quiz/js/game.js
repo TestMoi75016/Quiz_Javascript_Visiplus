@@ -1,6 +1,5 @@
 // const { countries, lespays } = require("./data"); // version d'import pour node.js, si je veux voir mon résultat sur le navigateur je dois utiliser l'import export standard ECMA6
-import { countries } from "./data.js";
-import { codePays } from "./data.js";
+import { codePays, countries } from "./data.js";
 
 export let state = {}; // La variable state = objet qui joue le rôle d'un état global du jeu. c'est-à-dire qu'elle stocke toutes les informations nécessaires pour suivre la progression de la partie et pour conserver des données importantes à chaque étape. // le regroupe donc plusieurs éléments qui représentent l'état actuel du jeu, comme le score du joueur, la question en cours, le nombre total de questions, etc.
 //plus tard ds le code quand on écrit state.quelqueChose alors que state est initialement un objet vide (state = {}), on ajoute dynamiquement une nouvelle propriété à l'objet state.
@@ -43,7 +42,7 @@ export function checkAnswerAndUpdateScore(answer) {
   }
 }
 
-// Fonction qui gère le démarrage du jeu.
+// Fonction qui gère le démarrage du jeu: MAJ le state :
 export function newGame(totalQuestions) {
   state.score = 0;
   state.currentQuestion = 0;
